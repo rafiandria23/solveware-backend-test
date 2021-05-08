@@ -49,7 +49,7 @@ class ProductController {
 
   static async getProduct(req, res, next) {
     try {
-      const productId = req.params.productId || req.query.productId;
+      const productId = req.params.productId;
 
       if (!product || +productId <= 0) {
         throw createError(400, {

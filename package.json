@@ -1,0 +1,30 @@
+{
+  "name": "solveware-test",
+  "version": "1.0.0",
+  "description": "Backend Test for Solveware.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafiandria23/solveware-test.git"
+  },
+  "author": "Adam Rafiandri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rafiandria23/solveware-test/issues"
+  },
+  "homepage": "https://github.com/rafiandria23/solveware-test#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  }
+}

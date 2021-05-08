@@ -11,6 +11,18 @@ class AdminController {
     try {
       const { email, password } = req.body;
 
+      if (!email) {
+        throw createError(400, {
+          message: 'Admin email cannot be empty!',
+        });
+      }
+
+      if (!password) {
+        throw createError(400, {
+          message: 'Admin password cannot be empty!',
+        });
+      }
+
       const foundAdmin = await Admin.findOne({
         where: {
           email,

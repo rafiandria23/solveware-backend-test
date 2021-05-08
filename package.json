@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app.js",
-    "dev": "cross-env NODE_ENV=development nodemon app.js"
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "migrate": "cross-env NODE_ENV=development sequelize-cli db:migrate",
+    "seed": "cross-env NODE_ENV=development sequelize-cli db:seed:all"
   },
   "repository": {
     "type": "git",

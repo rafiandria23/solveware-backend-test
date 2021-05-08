@@ -95,7 +95,11 @@ class UserController {
 
   static async getAllUsers(req, res, next) {
     try {
-      const foundUsers = User.find();
+      const foundUsers = User.find({
+        attributes: {
+          exclude: ['password'],
+        },
+      });
 
       return res.status(200).json({
         users: foundUsers,
@@ -118,6 +122,9 @@ class UserController {
       const foundUser = await User.findOne({
         where: {
           id: +userId,
+        },
+        attributes: {
+          exclude: ['password'],
         },
       });
 

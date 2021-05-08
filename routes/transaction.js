@@ -10,7 +10,10 @@ TransactionRouter.use(Authenticator.user);
 TransactionRouter.post('/', TransactionController.createTransaction);
 TransactionRouter.post('/:cartId', TransactionController.createTransaction);
 
-TransactionRouter.get('/', TransactionController.getAllTransactionsForUser);
+TransactionRouter.get(
+  '/:userId',
+  TransactionController.getAllTransactionsForUser,
+);
 TransactionRouter.get('/:transactionId', TransactionController.getTransaction);
 
 TransactionRouter.use(Authenticator.admin);

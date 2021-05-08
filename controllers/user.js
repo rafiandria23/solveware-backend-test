@@ -92,6 +92,48 @@ class UserController {
       return next(err);
     }
   }
+
+  static async getAllUsers(req, res, next) {
+    try {
+      const foundUsers = User.find();
+
+      return res.status(200).json({
+        users: foundUsers,
+      });
+    } catch (err) {
+      return next(err);
+    }
+  }
+
+  static async getUser(req, res, next) {
+    try {
+      const userId = req.params.userId || req.query.userId;
+
+      if (!userId || +userId <= 0) {
+        throw createError(400, {
+          message: 'User ID cannot be empty or 0!',
+        });
+      }
+
+      const foundUser = await User.findOne({
+        where: {
+          id: +userId,
+        },
+      });
+
+      if (!foundUser) {
+        throw createError(404, {
+          message: `User with ID ${userId} is not found!`,
+        });
+      }
+
+      return res.status(200).json({
+        user: foundUser,
+      });
+    } catch (err) {
+      return next(err);
+    }
+  }
 }
 
 module.exports = UserController;

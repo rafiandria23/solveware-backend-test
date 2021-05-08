@@ -7,9 +7,13 @@ if (process.env.NODE_ENV === 'development') {
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const createError = require('http-errors');
 
 // Middlewares
 const errorHandler = require('./middlewares/error-handler');
+
+// Routers
+const MainRouter = require('./routes');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -25,6 +29,16 @@ app.use(
 );
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use('/', MainRouter);
+
+app.use((_, __, next) => {
+  return next(
+    createError(404, {
+      message: 'Route not found!',
+    }),
+  );
+});
 
 app.use(errorHandler);
 

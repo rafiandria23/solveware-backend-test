@@ -1,7 +1,7 @@
 'use strict';
 
 const moment = require('moment');
-const { hashSync } = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -11,7 +11,7 @@ module.exports = {
         {
           name: 'Adam Rafiandri',
           email: 'adam@admin.com',
-          password: hashSync('password123', 10),
+          password: bcrypt.hashSync('password123', 10),
           createdAt: moment().toDate(),
           updatedAt: moment().toDate(),
         },

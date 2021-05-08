@@ -1,7 +1,7 @@
 'use strict';
 
-const { hashSync } = require('bcryptjs');
 const { Model } = require('sequelize');
+const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {}
@@ -18,8 +18,15 @@ module.exports = (sequelize, DataTypes) => {
       hooks: {
         beforeCreate(instance, options) {
           if (instance.password) {
-            instance.password = hashSync(instance.password, 10);
+            instance.password = bcrypt.hashSync(instance.password, 10);
           }
+        },
+      },
+      scopes: {
+        withoutPassword: {
+          attributes: {
+            exclude: ['password'],
+          },
         },
       },
     },

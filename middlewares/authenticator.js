@@ -36,6 +36,13 @@ class Authenticator {
               exclude: ['password'],
             },
           });
+
+          if (!foundUser) {
+            throw createError(401, {
+              message: 'Invalid access token!',
+            });
+          }
+
           req.user = foundUser;
           break;
 
@@ -48,6 +55,13 @@ class Authenticator {
               exclude: ['password'],
             },
           });
+
+          if (!foundAdmin) {
+            throw createError(401, {
+              message: 'Invalid access token!',
+            });
+          }
+
           req.admin = foundAdmin;
           break;
 
@@ -92,6 +106,13 @@ class Authenticator {
             exclude: ['password'],
           },
         });
+
+        if (!foundAdmin) {
+          throw createError(401, {
+            message: 'Invalid access token!',
+          });
+        }
+
         req.admin = foundAdmin;
       } else {
         throw createError(401, {

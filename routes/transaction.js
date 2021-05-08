@@ -15,6 +15,6 @@ TransactionRouter.get('/:transactionId', TransactionController.getTransaction);
 
 TransactionRouter.use(Authenticator.admin);
 
-TransactionRouter.get('/', TransactionController.getAllTransactionsForAdmin);
+TransactionRouter.get('/all', TransactionController.getAllTransactionsForAdmin);
 
 module.exports = TransactionRouter;

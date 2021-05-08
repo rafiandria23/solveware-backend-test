@@ -1,16 +1,18 @@
 'use strict';
 
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config();
+}
+
 const express = require('express');
 const cors = require('cors');
-const createError = require('http-errors');
 const morgan = require('morgan');
-const { createServer } = require('http');
 
-// Config
-const { NODE_ENV, API_PORT, sequelize } = require('./config');
+// Middlewares
+const errorHandler = require('./middlewares/error-handler');
 
 const app = express();
-const server = createServer(app);
+const port = process.env.PORT || 3000;
 
 app.set('trust proxy', true);
 app.use(morgan('combined'));
@@ -23,3 +25,11 @@ app.use(
 );
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(errorHandler);
+
+app.listen(port, () => {
+  console.log(
+    `Solveware API is listening on\nPORT\t=>\t${port}\nENV\t=>\t${process.env.NODE_ENV.toUpperCase()}`,
+  );
+});

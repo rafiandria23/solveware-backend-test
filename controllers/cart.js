@@ -5,7 +5,7 @@ const createError = require('http-errors');
 const { User, Cart } = require('../models');
 
 class CartController {
-  static async AddCart(req, res, next) {
+  static async addCart(req, res, next) {
     try {
       const { email } = req.user;
       const productId = req.params.productId || req.query.productId;

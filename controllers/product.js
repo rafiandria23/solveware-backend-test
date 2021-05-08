@@ -1,6 +1,6 @@
 'use strict';
 
-const createError = requrie('http-errors');
+const createError = require('http-errors');
 
 const { Product } = require('../models');
 

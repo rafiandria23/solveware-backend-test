@@ -57,9 +57,39 @@ class TransactionController {
     }
   }
 
+  static async getAllTransactionForUser(req, res, next) {
+    try {
+      const { id: userId } = req.user;
+
+      const foundTransactions = await Transaction.find({
+        where: {
+          userId,
+        },
+      });
+
+      return res.status(200).json({
+        transactions: foundTransactions,
+      });
+    } catch (err) {
+      return next(err);
+    }
+  }
+
+  static async getAllTransactionForAdmin(req, res, next) {
+    try {
+      const foundTransactions = await Transaction.find();
+
+      return res.status(200).json({
+        transactions: foundTransactions,
+      });
+    } catch (err) {
+      return next(err);
+    }
+  }
+
   static async getTransaction(req, res, next) {
     try {
-      const transactionId = req.params.transactionId || req.query.transactionId;
+      const transactionId = req.params.transactionId;
 
       if (!transactionId) {
         throw createError(400, {

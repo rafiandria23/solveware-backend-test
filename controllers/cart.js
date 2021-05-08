@@ -2,17 +2,26 @@
 
 const createError = require('http-errors');
 
-const { Cart } = require('../models');
+const { Product, Cart } = require('../models');
 
 class CartController {
   static async addCart(req, res, next) {
     try {
       const { id: userId } = req.user;
-      const productId = req.params.productId || req.query.productId;
+      const productId =
+        req.body.producrId || req.params.productId || req.query.productId;
 
-      if (!producrId) {
+      if (!producrId(+productId <= 0)) {
         throw createError(400, {
           message: 'Product ID cannot be empty!',
+        });
+      }
+
+      const foundProduct = await Product.findByPk(+productId);
+
+      if (!foundProduct) {
+        throw createError(404, {
+          message: `Product with ID ${productId} is not found!`,
         });
       }
 

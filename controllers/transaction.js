@@ -51,7 +51,7 @@ class TransactionController {
     }
   }
 
-  static async getAllTransactionForUser(req, res, next) {
+  static async getAllTransactionsForUser(req, res, next) {
     try {
       const { id: userId } = req.user;
 
@@ -69,7 +69,7 @@ class TransactionController {
     }
   }
 
-  static async getAllTransactionForAdmin(req, res, next) {
+  static async getAllTransactionsForAdmin(req, res, next) {
     try {
       const foundTransactions = await Transaction.find();
 

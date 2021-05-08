@@ -2,12 +2,12 @@
 
 const createError = require('http-errors');
 
-const { User, Cart } = require('../models');
+const { Cart } = require('../models');
 
 class CartController {
   static async addCart(req, res, next) {
     try {
-      const { email } = req.user;
+      const { id: userId } = req.user;
       const productId = req.params.productId || req.query.productId;
 
       if (!producrId) {
@@ -16,14 +16,8 @@ class CartController {
         });
       }
 
-      const foundUser = await User.findOne({
-        where: {
-          email,
-        },
-      });
-
       const addedCart = await Cart.create({
-        userId: foundUser.id,
+        userId,
         productId: +productId,
       });
 

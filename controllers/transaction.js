@@ -8,7 +8,7 @@ const { User, Cart, Transaction } = require('../models');
 class TransactionController {
   static async createTransaction(req, res, next) {
     try {
-      const { email } = req.user;
+      const { id: userId } = req.user;
       const cartId = req.params.cartId || req.query.cartId;
 
       if (!cartId) {
@@ -29,14 +29,8 @@ class TransactionController {
         });
       }
 
-      const foundUser = await User.findOne({
-        where: {
-          email,
-        },
-      });
-
       const createdTransaction = await Transaction.create({
-        userId: foundUser.id,
+        userId,
         productId: foundCart.productId,
         datetime: moment().toDate(),
         paid: true,

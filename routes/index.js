@@ -7,6 +7,7 @@ const AdminRouter = require('./admin');
 const UserRouter = require('./user');
 const ProductRouter = require('./product');
 const CartRouter = require('./cart');
+const TransactionRouter = require('./transaction');
 
 MainRouter.get('/', (_, res) => {
   return res.status(200).json({
@@ -19,5 +20,6 @@ MainRouter.use('/admins', AdminRouter);
 MainRouter.use('/users', UserRouter);
 MainRouter.use('/products', ProductRouter);
 MainRouter.use('/carts', CartRouter);
+MainRouter.use('/transactions', TransactionRouter);
 
 module.exports = MainRouter;

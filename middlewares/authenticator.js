@@ -9,7 +9,6 @@ class Authenticator {
   static async user(req, res, next) {
     try {
       const accessToken =
-        req.cookies.accessToken ||
         req.headers.authorization?.split(' ')[1] ||
         req.headers['X-ACCESS-TOKEN'] ||
         req.headers['x-access-token'] ||
@@ -80,7 +79,6 @@ class Authenticator {
   static async admin(req, res, next) {
     try {
       const accessToken =
-        req.cookies.accessToken ||
         req.headers.authorization?.split(' ')[1] ||
         req.headers['X-ACCESS-TOKEN'] ||
         req.headers['x-access-token'] ||

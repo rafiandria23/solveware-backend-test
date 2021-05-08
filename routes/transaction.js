@@ -11,13 +11,12 @@ TransactionRouter.post('/', TransactionController.createTransaction);
 TransactionRouter.post('/:cartId', TransactionController.createTransaction);
 
 TransactionRouter.get(
-  '/:userId',
-  TransactionController.getAllTransactionsForUser,
+  '/all',
+  Authenticator.admin,
+  TransactionController.getAllTransactionsForAdmin,
 );
+
 TransactionRouter.get('/:transactionId', TransactionController.getTransaction);
-
-TransactionRouter.use(Authenticator.admin);
-
-TransactionRouter.get('/all', TransactionController.getAllTransactionsForAdmin);
+TransactionRouter.get('/', TransactionController.getAllTransactionsForUser);
 
 module.exports = TransactionRouter;

@@ -344,9 +344,9 @@ Method: GET
 }
 ```
 
-#### View All Transactions (Admins)
+#### View All Transactions (Admin)
 
-Endpoint: /transactions  
+Endpoint: /transactions/all
 Method: GET
 
 Response Body
@@ -367,7 +367,7 @@ Response Body
 }
 ```
 
-#### View a Transaction (Admins)
+#### View a Transaction (Admin)
 
 Endpoint: /transactions/:transactionId  
 Method: GET

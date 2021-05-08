@@ -95,7 +95,8 @@ class UserController {
 
   static async getAllUsers(req, res, next) {
     try {
-      const foundUsers = User.find({
+      const foundUsers = await User.findAll({
+        where: {},
         attributes: {
           exclude: ['password'],
         },
@@ -111,7 +112,7 @@ class UserController {
 
   static async getUser(req, res, next) {
     try {
-      const userId = req.params.userId || req.query.userId;
+      const userId = req.params.userId;
 
       if (!userId || +userId <= 0) {
         throw createError(400, {

@@ -53,9 +53,9 @@ class TransactionController {
 
   static async getAllTransactionsForUser(req, res, next) {
     try {
-      const userId = req.user.id || req.params.userId;
+      const userId = req.user.id;
 
-      const foundTransactions = await Transaction.find({
+      const foundTransactions = await Transaction.findAll({
         where: {
           userId,
         },
@@ -71,7 +71,7 @@ class TransactionController {
 
   static async getAllTransactionsForAdmin(req, res, next) {
     try {
-      const foundTransactions = await Transaction.find();
+      const foundTransactions = await Transaction.findAll();
 
       return res.status(200).json({
         transactions: foundTransactions,

@@ -37,7 +37,11 @@ class ProductController {
 
   static async getAllProducts(req, res, next) {
     try {
-      const foundProducts = await Product.find();
+      let foundProducts = await Product.findAll();
+      foundProducts = foundProducts.map((p) => {
+        p.price = parseFloat(p.price);
+        return p;
+      });
 
       return res.status(200).json({
         products: foundProducts,
@@ -49,9 +53,9 @@ class ProductController {
 
   static async getProduct(req, res, next) {
     try {
-      const productId = req.params.productId;
+      const productId = req.params.productId || req.query.productId;
 
-      if (!product || +productId <= 0) {
+      if (!productId || +productId <= 0) {
         throw createError(400, {
           message: 'Product ID cannot be empty or 0!',
         });
@@ -64,6 +68,8 @@ class ProductController {
           message: `Product with ID ${productId} is not found!`,
         });
       }
+
+      foundProduct.price = parseFloat(foundProduct.price);
 
       return res.status(200).json({
         product: foundProduct,
@@ -97,10 +103,17 @@ class ProductController {
         });
       }
 
-      await Product.update({
-        name,
-        price: parseFloat(price),
-      });
+      await Product.update(
+        {
+          name,
+          price: parseFloat(price),
+        },
+        {
+          where: {
+            id: +productId,
+          },
+        },
+      );
 
       const updatedProduct = await Product.findByPk(+productId);
 
@@ -123,7 +136,7 @@ class ProductController {
     try {
       const productId = req.params.productId || req.query.productId;
 
-      if (!product || +productId <= 0) {
+      if (!productId || +productId <= 0) {
         throw createError(400, {
           message: 'Product ID cannot be empty or 0!',
         });

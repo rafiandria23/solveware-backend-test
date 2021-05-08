@@ -77,8 +77,8 @@ class UserController {
           process.env.JWT_ACCESS_SECRET,
         );
 
-        return res.status(201).json({
-          message: 'Successfully login!',
+        return res.status(200).json({
+          message: 'Successfully logged in!',
           user: {
             name: foundUser.name,
             email: foundUser.email,

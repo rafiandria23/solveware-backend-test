@@ -3,6 +3,7 @@
 const moment = require('moment');
 
 const MainRouter = require('express').Router();
+const AdminRouter = require('./admin');
 const UserRouter = require('./user');
 
 MainRouter.get('/', (_, res) => {
@@ -12,6 +13,7 @@ MainRouter.get('/', (_, res) => {
   });
 });
 
+MainRouter.use('/admins', AdminRouter);
 MainRouter.use('/users', UserRouter);
 
 module.exports = MainRouter;

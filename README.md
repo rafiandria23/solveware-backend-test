@@ -11,14 +11,14 @@ Environment variables are availabel in .env.template file.
 Make sure you have filled out all environment variables listed in .env.template file.
 
 ```sh
-  git clone https://github.com/rafiandria23/solveware-test.git
-  npm install
+git clone https://github.com/rafiandria23/solveware-test.git
+npm install
 
-  # Production
-  npm start
+# Production
+npm start
 
-  # Development
-  npm run dev
+# Development
+npm run dev
 ```
 
 ## User Features

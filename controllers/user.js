@@ -3,6 +3,7 @@
 const createError = require('http-errors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const validator = require('validator').default;
 
 const { User } = require('../models');
 
@@ -10,6 +11,28 @@ class UserController {
   static async register(req, res, next) {
     try {
       const { name, email, password } = req.body;
+
+      if (!name) {
+        throw createError(400, {
+          message: 'User name cannot be empty!',
+        });
+      }
+
+      if (!email) {
+        throw createError(400, {
+          message: 'User email cannot be empty!',
+        });
+      } else if (!validator.isEmail(email)) {
+        throw createError(400, {
+          message: 'Invalid user email address!',
+        });
+      }
+
+      if (!passowrd) {
+        throw createError(400, {
+          message: 'User password cannot be empty!',
+        });
+      }
 
       const foundUser = await User.scope('withoutPassword').findOne({
         where: {

@@ -3,6 +3,7 @@
 const createError = require('http-errors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const validator = require('validator');
 
 const { Admin } = require('../models');
 
@@ -14,6 +15,10 @@ class AdminController {
       if (!email) {
         throw createError(400, {
           message: 'Admin email cannot be empty!',
+        });
+      } else if (!validator.isEmail(email)) {
+        throw createError(400, {
+          message: 'Invalid admin email address!',
         });
       }
 

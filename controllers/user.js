@@ -78,6 +78,22 @@ class UserController {
     try {
       const { email, password } = req.body;
 
+      if (!email) {
+        throw createError(400, {
+          message: 'User email cannot be empty!',
+        });
+      } else if (!validator.isEmail(email)) {
+        throw createError(400, {
+          message: 'Invalid user email address!',
+        });
+      }
+
+      if (!password) {
+        throw createError(400, {
+          message: 'User password cannot be empty!',
+        });
+      }
+
       const foundUser = await User.findOne({
         where: {
           email,

@@ -129,7 +129,7 @@ Response Body
 
 #### View All Transactions
 
-Endpoint: /transactions/:userId  
+Endpoint: /transactions  
 Method: GET
 
 Response Body

@@ -8,7 +8,7 @@ Environment variables are availabel in .env.template file.
 
 ## Getting Started
 
-Make sure you have filled out all environment variables listed in .env.template file.
+Make sure you have filled out all environment variables listed in .env.template file and have created the database.
 
 ```sh
 git clone https://github.com/rafiandria23/solveware-test.git

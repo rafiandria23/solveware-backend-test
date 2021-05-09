@@ -3,7 +3,7 @@
 const createError = require('http-errors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const validator = require('validator');
+const validator = require('validator').default;
 
 const { Admin } = require('../models');
 

@@ -28,7 +28,7 @@ class UserController {
         });
       }
 
-      if (!passowrd) {
+      if (!password) {
         throw createError(400, {
           message: 'User password cannot be empty!',
         });

@@ -281,6 +281,8 @@ Request Body
 }
 ```
 
+Response Body
+
 ```json
 {
   "message": "Successfully updated product!",
@@ -321,7 +323,9 @@ Method: GET
   "users": [
     {
       "name": "John Doe",
-      "email": "john@gmail.com"
+      "email": "john@gmail.com",
+      "createdAt": "2021-05-08T20:49:38.274Z",
+      "updatedAt": "2021-05-08T20:49:38.274Z"
     },
     ...
   ]

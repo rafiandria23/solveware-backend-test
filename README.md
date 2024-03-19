@@ -1,5 +1,18 @@
 # Solveware Test
 
+[![GitHub Actions Build](https://github.com/rafiandria23/solveware-backend-test/actions/workflows/ci.yaml/badge.svg)](https://github.com/rafiandria23/solveware-backend-test/actions/workflows/ci.yaml)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=coverage)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=bugs)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
+
 Backend Test for Solveware.
 
 ## Environtment Variables

@@ -1,7 +1,7 @@
 {
   "name": "solveware-test",
   "version": "1.0.0",
-  "description": "Backend Test for Solveware.",
+  "description": "Backend test for Solveware.",
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app.js",

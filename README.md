@@ -13,7 +13,7 @@
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=rafiandria23_solveware-backend-test&metric=bugs)](https://sonarcloud.io/summary/new_code?id=rafiandria23_solveware-backend-test)
 
-Backend Test for Solveware.
+Backend test for Solveware.
 
 ## Environtment Variables
 

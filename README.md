@@ -17,11 +17,11 @@ Backend test for Solveware.
 
 ## Environtment Variables
 
-Environment variables are availabel in .env.template file.
+Environment variables are availabel in `.env.example` file.
 
 ## Getting Started
 
-Make sure you have filled out all environment variables listed in .env.template file and have created the database.
+Make sure you have filled out all environment variables listed in `.env.example` file and have created the database.
 
 ```sh
 git clone https://github.com/rafiandria23/solveware-test.git

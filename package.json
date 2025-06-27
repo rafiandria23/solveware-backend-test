@@ -33,7 +33,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "dotenv": "^16.0.0",
+    "dotenv": "^17.0.0",
     "nodemon": "^3.0.0",
     "sequelize-cli": "^6.2.0"
   }
